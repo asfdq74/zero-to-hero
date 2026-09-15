@@ -1,6 +1,6 @@
 # dependencies
 node_modules/
-
+backend/.venv
 # next.js
 .next/
 out/
@@ -8,7 +8,8 @@ out/
 # production
 build/
 dist/
-
+__pycache__/
+*.py[cod]
 # editor
 .vscode/*
 !.vscode/extensions.json
