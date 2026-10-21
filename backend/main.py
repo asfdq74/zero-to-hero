@@ -19,6 +19,7 @@ def get_session_id(request: Request, response: Response) -> str:
         response.set_cookie(
             "session_id",
             sid,
+            secure=True,
             httponly=True,
             samesite="lax",
             max_age=60 * 60 * 24 * 30,  # 记 30 天
