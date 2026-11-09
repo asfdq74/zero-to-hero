@@ -15,6 +15,10 @@ import "../css/cards.css";
 import "../css/lab.css";
 import "../css/responsive.css";
 
+import Script from "next/script";
+
+const GA_MEASUREMENT_ID = "G-X74W9938GE";
+
 export const metadata = {
   title: "zero to tech",
   description: "个人主页 + 文字实验室",
@@ -24,6 +28,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="zh-CN">
       <body>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_MEASUREMENT_ID}');`}
+        </Script>
         <div className="app-shell">
           <div className="page-shell">
             <main className="page-content">{children}</main>
